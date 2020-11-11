@@ -6,15 +6,21 @@ require_once './Car.php';
 
 class Truck extends Car
 {
-    private $fuel = 0;
-    private $payload = 0;
+    private $payload;
+    private $fuel;
+
+    function __construct($owner, $pistonv)
+    {
+        parent::__construct($owner, $pistonv);
+        $this->payload = 0;
+        $this->fuel = 0;
+    }
 
     function runFor($km)
     {
         $result = parent::runFor($km);
         if($result) {
-            $this->fuel += ($km / 20) * ($this->pistonVolume() / 1000)
-                            + ($this->payload * $km) / 10000;
+            $this->fuel += ($km / 20) * ($this->pistonVolume() / 1000) + (($this->payload * $km) / 10000);
         }
 
         return $result;

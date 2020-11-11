@@ -40,7 +40,7 @@ while(true) {
 
 EOT
             );
-            break;
+        break;
         default:
             fprintf(STDERR, "Unkown command '%s' !!!\n", $command);
     }
